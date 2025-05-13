@@ -1,38 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Manipulation </title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS Event Handling Playground</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Interactive Web Page</h1>
-        <p id="welcome-message">Welcome to My Web page!</p>
-    </header>
+  <h1>Interactive JS Playground</h1>
 
-    <main>
-        <section id="content-section">
-            <h2>Content Section</h2>
-            <p>This section demonstrates dynamic content changes.</p>
-            <button id="change-text-btn">Change Text</button>
-            <button id="change-style-btn">Toggle Style</button>
-        </section>
+  <!-- 1. Event Handling Buttons -->
+  <section id="events">
+    <h2>1. Event Handling </h2>
+    <button id="clickBtn">Click Me!</button>
+    <button id="hoverBtn">Hover Over Me!</button> <br>
+    <input id="keyInput" placeholder="Type something..." /> <br>
+    <button id="secretBtn">Double-Click or Long Press Me</button>
+  </section>
 
-        <section id="interactive-section">
-            <h2>Interactive Section</h2>
-            <div id="element-container">
-                <p>This element can be removed or added.</p>
-            </div>
-            <button id="toggle-element-btn">Toggle Element</button>
-        </section>
-    </main>
+  <!-- 2. Interactive Elements -->
+  <section id="interactive">
+    <h2>2. Interactive Elements 🎮</h2>
 
-    <footer>
-        <p>&copy; 2023 DOM Manipulation Example</p>
-    </footer>
+    <!-- Color-change Button -->
+    <button id="colorBtn">Change My Color</button>
 
-    <script src="script.js"></script>
+    <!-- Image Slideshow -->
+     <h2>Enjoy my cool Image Show</h2>
+    <p>Click the arrows to navigate through the images</p>
+    <p>Reload the page if you want to see more cool images</p>
+    <div class="slideshow">
+      <img src="https://picsum.photos/400/300" class="slide visible" alt="1"/>
+      <img src= "https://picsum.photos/seed/picsum/400/300"class="slide" alt="2"/>
+      <img src="https://placebeard.it/400x300" class="slide" alt="3"/>
+      <div class="controls">
+        <button id="prev">&larr;</button>
+        <button id="next">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+      <button class="tab-btn"      data-tab="tab2">Tab 2</button>
+      <button class="tab-btn"      data-tab="tab3">Tab 3</button>
+      <div id="tab1" class="tab-content active">Content for this Tab shows only after the tab is clicked</div>
+      <div id="tab2" class="tab-content">Content for this Tab2 shows only after the tab is clicked</div>
+      <div id="tab3" class="tab-content">Content for this Tab3 shows only after the tab is clicked</div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="accordion">
+      <div class="item">
+        <h3 class="accordion-header">Section A</h3>
+        <div class="accordion-body">Details for A appear only after the section is clicked, A toggle function on javascript powers this action</div>
+      </div>
+      <div class="item">
+        <h3 class="accordion-header">Section B</h3>
+        <div class="accordion-body">Details for B appear only after the section is clicked, A toggle function on javascript powers this action</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Form Validation -->
+  <section id="form-section">
+    <h2>3. Form Validation 📋</h2>
+    <form id="signupForm" novalidate>
+      <label>
+        Name (required):
+        <input type="text" id="name" required />
+        <small class="error"></small>
+      </label>
+      <label>
+        Email (required):
+        <input type="email" id="email" required />
+        <small class="error"></small>
+      </label>
+      <label>
+        Password (min 8 chars):
+        <input type="password" id="password" required minlength="8" />
+        <small class="error"></small>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>

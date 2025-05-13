@@ -1,64 +1,98 @@
+// 🧙‍♂️ Wrap everything to avoid globals
+document.addEventListener('DOMContentLoaded', () => {
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get references to DOM elements
-    const welcomeMessage = document.getElementById('welcome-message');
-    const changeTextBtn = document.getElementById('change-text-btn');
-    const changeStyleBtn = document.getElementById('change-style-btn');
-    const toggleElementBtn = document.getElementById('toggle-element-btn');
-    const elementContainer = document.getElementById('element-container');
-    
-    const messages = [
-        "Welcome to our demonstration page!",
-        "Hello there! Thanks for visiting.",
-        "You're interacting with dynamic content!",
-        "JavaScript makes web pages interactive!"
-    ];
-    
-    // Counter for message rotation
-    let messageIndex = 0;
-    
-    // Change text content dynamically
-    changeTextBtn.addEventListener('click', function() {
-        messageIndex = (messageIndex + 1) % messages.length;
-        welcomeMessage.textContent = messages[messageIndex];
+  // 1. EVENT HANDLING
+  // Button click
+  document.getElementById('clickBtn')
+    .addEventListener('click', () => alert('Button clicked!'));
+
+  // Hover effects
+  const hoverBtn = document.getElementById('hoverBtn');
+  hoverBtn.addEventListener('mouseenter', () => hoverBtn.textContent = '👀 Hey!');
+  hoverBtn.addEventListener('mouseleave', () => hoverBtn.textContent = 'Hover Over Me!');
+
+  // Keypress detection
+  document.getElementById('keyInput')
+    .addEventListener('keypress', e => console.log(`You pressed: ${e.key}`));
+
+  // Secret action: double-click or long-press
+  const secretBtn = document.getElementById('secretBtn');
+  secretBtn.addEventListener('dblclick', () => secretBtn.textContent = '🤫 Double-clicked!');
+  let pressTimer;
+  secretBtn.addEventListener('mousedown', () => {
+    pressTimer = setTimeout(() => secretBtn.textContent = '🤫 Long-pressed!', 800);
+  });
+  secretBtn.addEventListener('mouseup', () => clearTimeout(pressTimer));
+
+
+  // 2. INTERACTIVE ELEMENTS
+
+  // Color-change button
+  document.getElementById('colorBtn')
+    .addEventListener('click', e => e.target.style.backgroundColor = 
+      `hsl(${Math.random()*360}, 70%, 80%)`);
+
+  // Simple slideshow
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  function showSlide(idx) {
+    slides.forEach((s,i) => s.classList.toggle('visible', i===idx));
+  }
+  document.getElementById('prev')
+    .addEventListener('click', () => showSlide(current = (current+slides.length-1)%slides.length));
+  document.getElementById('next')
+    .addEventListener('click', () => showSlide(current = (current+1)%slides.length));
+
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
     });
-    
-    //Modify CSS styles via JavaScript
-    changeStyleBtn.addEventListener('click', function() {
-        welcomeMessage.classList.toggle('highlight');
-        
-        // Change button text based on state
-        if (welcomeMessage.classList.contains('highlight')) {
-            changeStyleBtn.textContent = 'Remove Highlight';
-        } else {
-            changeStyleBtn.textContent = 'Add Highlight';
-        }
+  });
+
+  // Accordion
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const body = header.nextElementSibling;
+      const isOpen = body.style.display === 'block';
+      document.querySelectorAll('.accordion-body').forEach(b => b.style.display = 'none');
+      body.style.display = isOpen ? 'none' : 'block';
     });
-    
-    // Add or remove an element when a button is clicked
-    toggleElementBtn.addEventListener('click', function() {
-        const paragraph = elementContainer.querySelector('p');
-        
-        if (paragraph) {
-            elementContainer.removeChild(paragraph);
-            toggleElementBtn.textContent = 'Add Element';
-        } else {
-            const newParagraph = document.createElement('p');
-            newParagraph.textContent = 'This is a newly added element!';
-            elementContainer.appendChild(newParagraph);
-            toggleElementBtn.textContent = 'Remove Element';
-        }
+  });
+
+
+  // 3. FORM VALIDATION
+  const form = document.getElementById('signupForm');
+  const fields = ['name','email','password'];
+
+  // Real-time feedback
+  fields.forEach(id => {
+    const input = document.getElementById(id);
+    const err   = input.nextElementSibling;
+    input.addEventListener('input', () => {
+      if (input.validity.valid) err.textContent = '';
+      else if (input.validity.valueMissing) err.textContent = 'This field is required';
+      else if (input.validity.typeMismatch) err.textContent = 'Invalid format';
+      else if (input.validity.tooShort) err.textContent = `At least ${input.minLength} chars`;
     });
-    
-    // Additional interactive feature change background color
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.addEventListener('mouseover', function() {
-            this.style.backgroundColor = '#e9e9e9';
-        });
-        
-        section.addEventListener('mouseout', function() {
-            this.style.backgroundColor = '#f9f9f9';
-        });
+  });
+
+  // On submit
+  form.addEventListener('submit', e => {
+    let valid = true;
+    fields.forEach(id => {
+      const input = document.getElementById(id);
+      const err   = input.nextElementSibling;
+      if (!input.checkValidity()) {
+        valid = false;
+        err.textContent = err.textContent || 'Please fix this field';
+      }
     });
+    if (!valid) e.preventDefault();
+    else alert('Form submitted successfully!');
+  });
+
 });
