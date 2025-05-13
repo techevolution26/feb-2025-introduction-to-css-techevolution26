@@ -145,3 +145,53 @@ body {
         padding: 20px;
     }
 }
+
+/* …your existing styles… */
+
+/* 1. Define keyframe animations */
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 2. Animation utility classes */
+.animate-pulse {
+  animation-name: pulse;
+  animation-duration: var(--anim-duration, 1s);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--anim-duration, 1s) forwards;
+}
+
+/* 3. Button hover pulse */
+.btn:hover {
+  animation-name: pulse;
+  animation-duration: var(--anim-duration, 1s);
+  animation-iteration-count: 1;
+}
+
+/* 4. Image fade-in on load */
+.tech-image {
+  opacity: 0;
+  animation: fade-in var(--anim-duration, 1s) forwards;
+}
+
+/* 5. CSS variable for animation speed (default: normal) */
+:root {
+  --anim-duration: 1s;
+}
+
+/* Dark-mode toggle hint (demo) */
+body.dark-mode {
+  background: #2d3436;
+  color: #f1f2f6;
+}

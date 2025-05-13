@@ -1,29 +1,19 @@
-# Introduction to CSS
+CSS3 Transitions, Animations, and Advanced JavaScript Functions
+Objectives
 
-## Objectives
-Link an external CSS file to an HTML document.
-Apply basic styling using selectors.
-Use colors, fonts, and spacing effectively.
+Create smooth CSS transitions and animations. Use JavaScript functions for dynamic behavior. Implement local storage for data persistence.
+Instructions
 
-## Instructions
+Add CSS animations to elements like buttons or images.
 
-Create a style.css file.
-Apply CSS to a HTML page.
-Style elements using:
-Classes and IDs.
-Color and typography.
-Margins, paddings, and borders.
+Note
 
->[!NOTE]
->  - Include at least:
->  - Use of 3 selectors
->  - Style an image
->  - Margin, Padding & Borders
->  - Different font
+    Write a JavaScript function that:
+    Stores and retrieves user preferences using localStorage.
+    Implements an animation triggered by user actions.
 
-# Tasks
- - Link an external CSS file.
- - Apply at least 3 different selectors.
- - Improve readability and aesthetics.
+Tasks
+
+Create a CSS animation. Store data in localStorage. Apply JavaScript to trigger animations.
 
 Happy Coding! 💻✨
