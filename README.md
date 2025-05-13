@@ -1,29 +1,25 @@
-# Introduction to CSS
 
-## Objectives
-Link an external CSS file to an HTML document.
-Apply basic styling using selectors.
-Use colors, fonts, and spacing effectively.
+Introduction to JavaScript and DOM Manipulation
 
-## Instructions
+Objectives
 
-Create a style.css file.
-Apply CSS to a HTML page.
-Style elements using:
-Classes and IDs.
-Color and typography.
-Margins, paddings, and borders.
+Write basic JavaScript functions. Manipulate the DOM dynamically. Respond to user interactions.
+Instructions
 
->[!NOTE]
->  - Include at least:
->  - Use of 3 selectors
->  - Style an image
->  - Margin, Padding & Borders
->  - Different font
+    Create a script.js file and link it to a HTML.
+    Structure the document using DOCTYPE, html, head, and body.
 
-# Tasks
- - Link an external CSS file.
- - Apply at least 3 different selectors.
- - Improve readability and aesthetics.
+Note
+
+    Write JavaScript that:
+    Changes text content dynamically.
+    Modifies CSS styles via JavaScript.
+    Adds or removes an element when a button is clicked.
+
+Tasks
+
+    Create a well-structured HTML5 document.
+    Use at least 5 different HTML elements.
+    Ensure semantic correctness.
 
 Happy Coding! 💻✨

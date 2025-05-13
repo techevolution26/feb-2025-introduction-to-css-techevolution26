@@ -3,140 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Web Development Guide</title>
+    <title>DOM Manipulation </title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="header-title">Modern Web Development</h1>
-            <p class="header-subtitle">Essential techniques for building responsive, accessible websites</p>
-            <p id="me">by John Alfred</p>
-        </div>
+    <header>
+        <h1>Interactive Web Page</h1>
+        <p id="welcome-message">Welcome to My Web page!</p>
     </header>
 
-    <main class="container">
-        <article class="card">
-            <h2 class="card-title">Responsive Design Fundamentals</h2>
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                 alt="Web development on multiple devices" 
-                 class="tech-image">
-            
-            <p>Responsive web design has become essential in our multi-device world. The core principles include:</p>
-            
-            <ul>
-                <li><strong>Fluid Grids:</strong> Layouts should use relative units like percentages rather than fixed pixels</li>
-                <li><strong>Flexible Images:</strong> Images should scale appropriately within their containing elements</li>
-                <li><strong>Media Queries:</strong> CSS that adapts to different screen sizes and orientations</li>
-            </ul>
-            
-            <p id="highlight">Remember: Mobile-first design ensures your site works well on small screens before enhancing for larger displays.</p>
-            
-            <div class="code-snippet">
-/* Example media query for tablets */
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
-    .card {
-        padding: 40px;
-    }
-}
+    <main>
+        <section id="content-section">
+            <h2>Content Section</h2>
+            <p>This section demonstrates dynamic content changes.</p>
+            <button id="change-text-btn">Change Text</button>
+            <button id="change-style-btn">Toggle Style</button>
+        </section>
+
+        <section id="interactive-section">
+            <h2>Interactive Section</h2>
+            <div id="element-container">
+                <p>This element can be removed or added.</p>
             </div>
-            
-            <a href="#" class="btn">Learn More</a>
-            <a href="#" class="btn btn-secondary">Examples</a>
-        </article>
-
-        <article class="card">
-            <h2 class="card-title">CSS Best Practices</h2>
-            
-            <p>Writing maintainable CSS is crucial for long-term project success. Follow these guidelines:</p>
-            
-            <h3>1. Use Semantic Class Names</h3>
-            <p>Choose names that describe the purpose rather than the appearance (<code>.btn-primary</code> vs <code>.blue-button</code>).</p>
-            
-            <h3>2. Organize Your Stylesheet</h3>
-            <p>Group related styles together and comment sections:</p>
-            
-            <div class="code-snippet">
-/* ======================
-   BUTTON STYLES
-   ====================== */
-.btn {
-    /* Base button styles */
-}
-
-.btn-primary {
-    /* Primary button variations */
-}
-            </div>
-            
-            <h3>3. Leverage CSS Variables</h3>
-            <p>Store commonly used values like colors and spacing:</p>
-            
-            <div class="code-snippet">
-:root {
-    --primary-color: #0984e3;
-    --spacing-unit: 16px;
-}
-
-.card {
-    padding: var(--spacing-unit);
-    border-left: 5px solid var(--primary-color);
-}
-            </div>
-            
-            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                 alt="CSS code on a screen" 
-                 class="tech-image">
-        </article>
-
-        <article class="card">
-            <h2 class="card-title">Performance Optimization</h2>
-            
-            <p>Website performance directly impacts user experience and search rankings. Key techniques include:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Technique</th>
-                        <th>Impact</th>
-                        <th>Implementation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Image Optimization</td>
-                        <td>Reduces page weight</td>
-                        <td>Use modern formats (WebP), compression tools</td>
-                    </tr>
-                    <tr>
-                        <td>Code Minification</td>
-                        <td>Smaller file sizes</td>
-                        <td>Build tools like Webpack, Gulp</td>
-                    </tr>
-                    <tr>
-                        <td>Lazy Loading</td>
-                        <td>Faster initial load</td>
-                        <td><code>loading="lazy"</code> attribute</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p>Modern web development tools like <span id="highlight">Webpack</span>, <span id="highlight">Babel</span>, and <span id="highlight">PostCSS</span> can automate many optimization tasks.</p>
-            
-            <a href="#" class="btn">Performance Tools</a>
-            <a href="#" class="btn btn-secondary">Case Studies</a>
-        </article>
+            <button id="toggle-element-btn">Toggle Element</button>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 John Alfred Web Development Guide. All rights reserved.</p>
-            <p>Created with ♥ for developers everywhere</p>
-        </div>
+    <footer>
+        <p>&copy; 2023 DOM Manipulation Example</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
